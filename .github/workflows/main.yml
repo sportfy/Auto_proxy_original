@@ -38,9 +38,13 @@ jobs:
       
     - name: 提交更改
       run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
-        git config --local user.name '${{ secrets.NAME }}'
-        git pull origin main
+        if [ -z "${{ secrets.EMAIL }}" ] || [ -z "${{ secrets.NAME }}" ]; then
+      echo "Error: 'EMAIL' and/or 'NAME' secrets are not set."
+      exit 1
+    fi
+    git config --local user.email '${{ secrets.EMAIL }}'
+    git config --local user.name '${{ secrets.NAME }}'
+    git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
         git add ./Long_term_subscription2
