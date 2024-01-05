@@ -1,3 +1,8 @@
+import subprocess
+
+subprocess.run(['git', 'config', '--global', 'user.email', 'you@example.com'])
+subprocess.run(['git', 'config', '--global', 'user.name', 'Your Name'])
+
 # coding=utf-8
 import base64
 import requests
