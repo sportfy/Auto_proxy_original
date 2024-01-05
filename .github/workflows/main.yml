@@ -43,6 +43,8 @@ jobs:
         git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
+        git add ./sub/*
+        git add ./Long_term_subscription1
         git add ./Long_term_subscription2
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
