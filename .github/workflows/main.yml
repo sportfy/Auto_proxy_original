@@ -40,6 +40,8 @@ jobs:
       run: |                 
         git config --local user.email '${{ secrets.EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
+        git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
