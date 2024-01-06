@@ -1,4 +1,9 @@
 # coding=utf-8
+import os
+
+os.environ['GIT_AUTHOR_EMAIL'] = 'you@example.com'
+os.environ['GIT_AUTHOR_NAME'] = 'Your Name'
+
 import base64
 import requests
 import re
