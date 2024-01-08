@@ -38,12 +38,14 @@ jobs:
       
     - name: 提交更改
       run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
-        git config --local user.name '${{ secrets.NAME }}'
+        git config --global user.email '${{ secrets.EMAIL }}'
+        git config --global user.name '${{ secrets.NAME }}'
         git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
-        git add ./Long_term_subscription2
+        git config --global user.email '${{ secrets.EMAIL }}'
+git config --global user.name '${{ secrets.NAME }}'
+git add ./Long_term_subscription2
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
         git add ./Long_term_subscription5
