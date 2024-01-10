@@ -30,6 +30,8 @@ jobs:
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
       run: |
+        git config --global user.email '${{ secrets.EMAIL }}'
+        git config --global user.name '${{ secrets.NAME }}'
         pip install -r ./requirements.txt
     - name: 执行任务
       run: |
