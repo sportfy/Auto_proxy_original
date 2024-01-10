@@ -32,7 +32,7 @@ new_list = []
 e_sub = ['https://sub.pmsub.me/base64','https://www.prop.cf/?name=paimon&client=base64','https://raw.githubusercontent.com/yaney01/Yaney01/main/temporary','https://sub.pmsub.me/base64','https://raw.githubusercontent.com/hkaa0/permalink/main/proxy/V2ray','https://sub.sharecentre.online/sub','https://raw.githubusercontent.com/freefq/free/master/v2','https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub','https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/free','https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub']
 #e_sub = ['https://pastebin.com/raw/dmnL3uAR','https://openit.uitsrt.top/long','https://raw.githubusercontent.com/freefq/free/master/v2','https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub','https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2','https://raw.githubusercontent.com/kxswa/k/k/base64']
 #频道
-urls =["https://t.me/freeVPNjd","https://t.me/s/wxdy666","https://t.me/s/nice16688","https://t.me/go4sharing","https://t.me/go4sharing","https://t.me/s/helloworld_1024","https://t.me/s/dingyue_Center","https://t.me/ZDYZ2"]
+urls =["https://t.me/s/freeVPNjd","https://t.me/s/wxdy666","https://t.me/s/nice16688","https://t.me/s/go4sharing","https://t.me/s/helloworld_1024","https://t.me/s/dingyue_Center","https://t.me/s/ZDYZ2"]
 #线程池
 threads = []
 #机场链接
@@ -353,9 +353,8 @@ def get_sub_url():
             i += 1
 
             
-  
+ # ========== 抓取 kkzui.com 的节点 ==========  
 def get_kkzui():
-    # ========== 抓取 kkzui.com 的节点 ==========
     try:
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.53"}
         res = requests.get("https://kkzui.com/jd?orderby=modified", headers=headers)
@@ -365,12 +364,13 @@ def get_kkzui():
         sub_url = re.search(
             r'<strong>这是v2订阅地址：(.*?)</strong>', res.text).groups()[0]
         #print(sub_url)
-        #try_sub.append(sub_url)
+        try_sub.append(sub_url)
         e_sub.append(sub_url)
         print("获取kkzui.com完成！")
     except Exception as e:
         print(e)
         print("获取kkzui.com失败！")
+        
 # ========== 抓取 cfmem.com 的节点 ==========
 def get_cfmem():
     try:
@@ -381,7 +381,7 @@ def get_cfmem():
         res = requests.get(article_url,headers=headers)
         sub_url = re.search(r'>v2ray订阅链接&#65306;(.*?)</span>',res.text).groups()[0]
         #print(sub_url)
-        #try_sub.append(sub_url)
+        try_sub.append(sub_url)
         e_sub.append(sub_url)
         print("获取cfmem.com完成！")
     except Exception as e:
@@ -404,7 +404,7 @@ def get_v2rayshare():
             r'<p>https://v2rayshare.com/wp-content/uploads/(.*?)</p>', res.text).groups()[0]
         sub_url = 'https://v2rayshare.com/wp-content/uploads/'+sub_url
         #print(sub_url)
-        #try_sub.append(sub_url)
+        try_sub.append(sub_url)
         e_sub.append(sub_url)
         print("获取v2rayshare.com完成！")
     except Exception as e:
@@ -426,7 +426,7 @@ def get_nodefree():
             r'<p>https://nodefree.org/dy/(.*?)</p>', res.text).groups()[0]
         sub_url = 'https://nodefree.org/dy/'+sub_url
         #print(sub_url)
-        #try_sub.append(sub_url)
+        try_sub.append(sub_url)
         e_sub.append(sub_url)
         print("获取nodefree.org完成！")
     except Exception as e:
