@@ -1,4 +1,4 @@
-# coding=utf-8
+import sys# coding=utf-8
 import base64
 import requests
 import re
@@ -12,6 +12,13 @@ from time import sleep
 import chardet
 
 #试用机场链接
+import sys
+
+if not sys.argv[1]:
+    print("Author identity unknown. Please set your account's default identity using the commands:")
+    print("git config --global user.email 'you@example.com'")
+    print("git config --global user.name 'Your Name'")
+    sys.exit(1)
 home_urls = (
     'https://xn--30rs3bu7r87f.com',
     'https://seeworld.pro',          #5T   永久
