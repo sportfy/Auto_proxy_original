@@ -451,7 +451,7 @@ if __name__ == '__main__':
         #resp = get_content(get_channel_http(url))
         #print(url, "获取完毕！！")
     #等待线程结束
-    for t in tqdm(threads):
+    for t in tqdm(total=len(urls), desc='Fetching subscription links'):
         t.join()
     print("========== 准备写入订阅 ==========")
     res = write_document()
