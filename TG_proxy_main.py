@@ -128,7 +128,7 @@ def get_content(url):
 #写入文件
 def write_document():
     if e_sub == [] or try_sub == []:
-        print("订阅为空请检查！")
+        print('No subscription links available, please check.')
     else:
         #永久订阅
         random.shuffle(e_sub)
