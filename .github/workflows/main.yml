@@ -56,6 +56,10 @@ jobs:
         git add ./Long_term_subscription2.yaml
         git add ./Long_term_subscription3.yaml
         git add ./README.md
+              run: |
+        git config --global user.email 'you@example.com'
+        git config --global user.name 'Your Name'
+        git add ./README.md
         git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
     - name: 推送更改
       uses:  ad-m/github-push-action@master
