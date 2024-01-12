@@ -38,11 +38,8 @@ jobs:
       
     - name: 提交更改
       run: |                 
-        git config --global user.email 'you@example.com'
-        git config --global user.name 'Your Name'
-        git pull origin main
-        git add ./sub/*
-        git add ./Long_term_subscription1
+        git add .
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
         git add ./Long_term_subscription2
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
