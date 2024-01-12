@@ -350,7 +350,8 @@ def get_sub_url():
                     print("add:"+subscription_url)
                 except Exception as e:
                     print("获取订阅失败",e)
-            i += 1
+                print('获取订阅失败', e)
+    i += 1
 
             
  # ========== 抓取 kkzui.com 的节点 ==========  
