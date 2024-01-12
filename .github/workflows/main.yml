@@ -13,6 +13,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+  - name: Set user identity
+    run: |
+      git config --global user.email 'user_email_placeholder'
+      git config --global user.name 'user_name_placeholder'
     - name: 迁出代码
       uses: actions/checkout@v2
     - name: 安装Python
