@@ -78,7 +78,10 @@ def jiemi_base64(data):  # 解密base64
 #判读是否为订阅链接
 def get_content(url):
     #print('【获取频道',url,'】')
-    url_lst = get_channel_http(url)
+    try:
+        url_lst = get_channel_http(url)
+    except requests.exceptions.RequestException as e:
+        print('Error:', e)
     #print(url_lst)
     #对链接进行格式化
     for i in url_lst:
