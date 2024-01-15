@@ -78,7 +78,10 @@ def jiemi_base64(data):  # 解密base64
 #判读是否为订阅链接
 def get_content(url):
     #print('【获取频道',url,'】')
-    url_lst = get_channel_http(url)
+    try:
+        url_lst = get_channel_http(url)
+    except requests.exceptions.RequestException as e:
+        print('Error:', e)
     #print(url_lst)
     #对链接进行格式化
     for i in url_lst:
@@ -128,7 +131,7 @@ def get_content(url):
 #写入文件
 def write_document():
     if e_sub == [] or try_sub == []:
-        print("订阅为空请检查！")
+        print('No subscription links available, please check.')
     else:
         #永久订阅
         random.shuffle(e_sub)
@@ -274,7 +277,8 @@ def write_document():
         
     return
 
-#获取clash订阅
+def get_yaml():
+    print("开始获取clsah订阅")
 def get_yaml():
     print("开始获取clsah订阅")
     urls = ["https://api.dler.io//sub?target=clash&url=https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription_try&insert=false&config=https://raw.githubusercontent.com/w1770946466/fetchProxy/main/config/provider/rxconfig.ini&emoji=true","https://api.dler.io//sub?target=clash&url=https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription2&insert=false&config=https://raw.githubusercontent.com/w1770946466/fetchProxy/main/config/provider/rxconfig.ini&emoji=true", "https://api.dler.io//sub?target=clash&url=https://raw.githubusercontent.com/w1770946466/Auto_proxy/main/Long_term_subscription3&insert=false&config=https://raw.githubusercontent.com/w1770946466/fetchProxy/main/config/provider/rxconfig.ini&emoji=true"]
@@ -350,7 +354,8 @@ def get_sub_url():
                     print("add:"+subscription_url)
                 except Exception as e:
                     print("获取订阅失败",e)
-            i += 1
+                print('获取订阅失败', e)
+    i += 1
 
             
  # ========== 抓取 kkzui.com 的节点 ==========  
@@ -450,7 +455,7 @@ if __name__ == '__main__':
         #resp = get_content(get_channel_http(url))
         #print(url, "获取完毕！！")
     #等待线程结束
-    for t in tqdm(threads):
+    for t in tqdm(total=len(urls), desc='Fetching subscription links'):
         t.join()
     print("========== 准备写入订阅 ==========")
     res = write_document()
