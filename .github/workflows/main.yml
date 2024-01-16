@@ -36,6 +36,10 @@ jobs:
 
         python ./TG_proxy_main.py
       
+    - name: Set user email and name
+      run: |
+        git config --global user.email '${{ secrets.EMAIL }}'
+        git config --global user.name '${{ secrets.NAME }}'
     - name: 提交更改
       run: |                 
         git config --local user.email '${{ secrets.EMAIL }}'
@@ -44,6 +48,19 @@ jobs:
         git add ./sub/*
         git add ./Long_term_subscription1
         git add ./Long_term_subscription2
+        git add ./Long_term_subscription3
+        git add ./Long_term_subscription4
+        git add ./Long_term_subscription5
+        git add ./Long_term_subscription6
+        git add ./Long_term_subscription7
+        git add ./Long_term_subscription8
+        git add ./Long_term_subscription_num
+        git add ./Long_term_subscription_try
+        git add ./Long_term_subscription1.yaml
+        git add ./Long_term_subscription2.yaml
+        git add ./Long_term_subscription3.yaml
+        git add ./README.md
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
         git add ./Long_term_subscription5
