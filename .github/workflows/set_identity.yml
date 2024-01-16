@@ -1,0 +1,16 @@
+name: Set Identity
+
+on:
+  workflow_run:
+    workflows: [main.yml]
+    types:
+      - completed
+
+jobs:
+  set_identity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Git Identity
+        run: |
+          git config --global user.email 'you@example.com'
+          git config --global user.name 'Your Name'

@@ -13,7 +13,41 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 迁出代码
+      build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set Git Identity
+        run: |
+          git config --local user.email 'you@example.com'
+          git config --local user.name 'Your Name'
+
+      - name: Build and Test
+        run: |
+          # Add your build and test commands here
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+- name: 迁出代码
+  # The new content will be added after this line
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
       uses: actions/checkout@v2
     - name: 安装Python
       uses: actions/setup-python@v2
@@ -57,6 +91,17 @@ jobs:
         git add ./Long_term_subscription3.yaml
         git add ./README.md
         git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
+  uses:  ad-m/github-push-action@master
+  with:
+    branch: main
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
     - name: 推送更改
       uses:  ad-m/github-push-action@master
       with:
