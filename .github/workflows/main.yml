@@ -13,7 +13,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    name: CI
+      build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set Git Identity
+        run: |
+          git config --local user.email 'you@example.com'
+          git config --local user.name 'Your Name'
+
+      - name: Build and Test
+        run: |
+          # Add your build and test commands here
 
 on:
   push:
