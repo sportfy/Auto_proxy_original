@@ -38,7 +38,9 @@ jobs:
       
     - name: 提交更改
       run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
+        echo "Setting user email..."
+      echo "export USER_EMAIL='${{ secrets.EMAIL }}'" >> $GITHUB_ENV
+      git config --local user.email $USER_EMAIL
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
         git add ./sub/*
