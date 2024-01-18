@@ -1,0 +1,50 @@
+name: Fix GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest
+
+      - name: 提交更改
+        run: |
+          git config --local user.email 'you@example.com'
+          git config --local user.name 'Your Name'
+          git pull origin main
+          git add ./sub/*
+          git add ./Long_term_subscription1
+          git add ./Long_term_subscription2
+          git add ./Long_term_subscription3
+          git add ./Long_term_subscription4
+          git add ./Long_term_subscription5
+          git add ./Long_term_subscription6
+          git add ./Long_term_subscription7
+          git add ./Long_term_subscription8
+          git add ./Long_term_subscription_num
+          git add ./Long_term_subscription_try
+          git add ./Long_term_subscription1.yaml
+          git add ./Long_term_subscription2.yaml
+          git add ./Long_term_subscription3.yaml
+          git add ./README.md
+          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
