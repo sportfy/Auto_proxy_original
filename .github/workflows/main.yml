@@ -36,9 +36,11 @@ jobs:
 
         python ./TG_proxy_main.py
       
-    - name: 提交更改
+    - name: 设置用户标识
       run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        git config --local user.email '${{ secrets.GITHUB_EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
         git add ./sub/*
