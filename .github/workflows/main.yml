@@ -38,7 +38,15 @@ jobs:
       
     - name: 提交更改
       run: |                 
+        - name: Set user identity
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
+    - name: Set repository identity
+      run: |
         git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
         git add ./sub/*
