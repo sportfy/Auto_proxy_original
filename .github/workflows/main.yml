@@ -10,6 +10,14 @@ on:
     - cron: '0 */3 * * *'
 
 jobs:
+  build:
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -38,8 +46,8 @@ jobs:
       
     - name: 提交更改
       run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
-        git config --local user.name '${{ secrets.NAME }}'
+        export GIT_COMMITTER_EMAIL=$\{{ secrets.EMAIL }}\ngit config user.email $GIT_COMMITTER_EMAIL
+        export GIT_COMMITTER_NAME=$\{{ secrets.NAME }}\ngit config user.name $GIT_COMMITTER_NAME
         git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
