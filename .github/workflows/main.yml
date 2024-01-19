@@ -46,18 +46,7 @@ jobs:
       
     - name: 设置用户信息
       run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
-        export GIT_COMMITTER_EMAIL=$\{{ secrets.EMAIL }}\ngit config user.email $GIT_COMMITTER_EMAIL
-        export GIT_COMMITTER_NAME=$\{{ secrets.NAME }}\ngit config user.name $GIT_COMMITTER_NAME
-        git add ./Long_term_subscription_num
-        git add ./Long_term_subscription_try
-        git add ./Long_term_subscription1.yaml
-        git add ./Long_term_subscription2.yaml
-        git add ./Long_term_subscription3.yaml
-        git add ./README.md
-        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
-    - name: 推送更改
+        
       uses:  ad-m/github-push-action@master
       with:
         branch: main
