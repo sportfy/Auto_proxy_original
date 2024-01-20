@@ -13,7 +13,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 迁出代码
+    - name: Checkout repository
+      uses: actions/checkout@v2
       uses: actions/checkout@v2
     - name: 安装Python
       uses: actions/setup-python@v2
@@ -29,6 +30,10 @@ jobs:
     - name: 设置时区
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
+    - name: Set user email
+      run: git config --global user.email 'you@example.com'
+    - name: Set user name
+      run: git config --global user.name 'Your Name'
       run: |
         pip install -r ./requirements.txt
     - name: 执行任务
@@ -50,6 +55,13 @@ jobs:
         git add ./Long_term_subscription6
         git add ./Long_term_subscription7
         git add ./Long_term_subscription8
+        git add ./Long_term_subscription_num
+        git add ./Long_term_subscription_try
+        git add ./Long_term_subscription1.yaml
+        git add ./Long_term_subscription2.yaml
+        git add ./Long_term_subscription3.yaml
+        git add ./README.md
+        git push
         git add ./Long_term_subscription_num
         git add ./Long_term_subscription_try
         git add ./Long_term_subscription1.yaml
