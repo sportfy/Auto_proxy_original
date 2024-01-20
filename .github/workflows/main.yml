@@ -28,6 +28,11 @@ jobs:
           ${{ runner.os }}-pip-
     - name: 设置时区
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
+    - name: Set user identity
+      run: |
+        git config --global user.email 'you@example.com'
+        git config --global user.name 'Your Name'
+
     - name: 安装依赖
       run: |
         pip install -r ./requirements.txt
