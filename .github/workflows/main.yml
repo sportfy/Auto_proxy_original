@@ -31,9 +31,12 @@ jobs:
     - name: 安装依赖
       run: |
         pip install -r ./requirements.txt
+    - name: Set Git Config
+      run: |
+        git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
     - name: 执行任务
       run: |
-
         python ./TG_proxy_main.py
       
     - name: 提交更改
@@ -61,3 +64,4 @@ jobs:
       uses:  ad-m/github-push-action@master
       with:
         branch: main
+        python ./TG_proxy_main.py
