@@ -13,7 +13,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 迁出代码
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: Set User Identity
+      run: |
+        git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
       uses: actions/checkout@v2
     - name: 安装Python
       uses: actions/setup-python@v2
@@ -41,6 +46,18 @@ jobs:
         git config --local user.email '${{ secrets.EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
+        git add ./sub/*
+        git add ./Long_term_subscription1
+        git add ./Long_term_subscription2
+        git add ./Long_term_subscription3
+        git add ./Long_term_subscription4
+        git add ./Long_term_subscription5
+        git add ./Long_term_subscription6
+        git add ./Long_term_subscription7
+        git add ./Long_term_subscription8
+        git add ./Long_term_subscription_num
+        git add ./Long_term_subscription_try
+        git add ./Long_term_subscription1.yaml
         git add ./sub/*
         git add ./Long_term_subscription1
         git add ./Long_term_subscription2
