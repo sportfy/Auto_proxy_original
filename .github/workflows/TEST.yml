@@ -24,7 +24,7 @@ jobs:
     - name: 设置时区
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
-      run: |
+    - name: Set User Email\n      run: |\n        git config --global user.email 'you@example.com'\n    - name: Set User Name\n      run: |\n        git config --global user.name 'Your Name'\n    - name: 设置时区\n      run: sudo timedatectl set-timezone 'Asia/Shanghai'\n    - name: 安装依赖\n      run: |
         pip install -r ./requirements.txt
     - name: 执行任务
       run: |
