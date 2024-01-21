@@ -12,7 +12,17 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
+    env:
+  GIT_USER_EMAIL: you@example.com
+  GIT_USER_NAME: Your Name
+
+steps:
+  - name: Set Git user identity
+    run: |
+      git config --global user.email $GIT_USER_EMAIL
+      git config --global user.name $GIT_USER_NAME
+
+steps:
     - name: 迁出代码
       uses: actions/checkout@v2
     - name: 安装Python
