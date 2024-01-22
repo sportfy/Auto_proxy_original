@@ -38,8 +38,13 @@ jobs:
       
     - name: 提交更改
       run: |                 
+    - name: Set user email
+      run: git config --global user.email "you@example.com"
+
+    - name: 
+      run: |                 
         git config --local user.email '${{ secrets.EMAIL }}'
-        git config --local user.name '${{ secrets.NAME }}'
+        git config --local user.name '${{ secrets.NAME }'
         git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
