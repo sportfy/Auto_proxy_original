@@ -27,9 +27,19 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
     - name: 设置时区
+    - name: 导入仓库
+      uses: actions/checkout@v2
+      uses: actions/setup-python@v2
+    - name: 设置用户身份
+      run: |
+        git config --global user.email '${{ secrets.EMAIL }}'
+        git config --global user.name '${{ secrets.NAME }}'
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
-      run: |
+      - name: 设置用户身份
+        run: |
+          git config --local user.email '${{ secrets.EMAIL }}'
+          git config --local user.name '${{ secrets.NAME }}'
         pip install -r ./requirements.txt
     - name: 执行任务
       run: |
