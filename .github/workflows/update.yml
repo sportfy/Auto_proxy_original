@@ -1,0 +1,32 @@
+name: Update User Identity
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_identity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Checkout repository again
+        uses: actions/checkout@v2
+
+      - name: Set User Identity
+        run: |
+          git config --local user.email 'you@example.com'
+          git config --local user.name 'Your Name'
+          git config --global user.email ${{ secrets.USER_EMAIL }}
+          git config --global user.name ${{ secrets.USER_NAME }}
+          git config --global user.email ${{ secrets.USER_EMAIL }}
+          echo 'User identity set' || exit 1
+          git config --global user.name ${{ secrets.USER_NAME }}
