@@ -21,7 +21,9 @@ jobs:
       - name: Checkout repository again
         uses: actions/checkout@v2
 
-      - name: Update User Identity
+      - name: Set User Identity
         run: |
+          git config --global user.email ${{ secrets.USER_EMAIL }}
+          git config --global user.name ${{ secrets.USER_NAME }}
           python -c "import os; import subprocess; subprocess.run(['git', 'config', '--global', 'user.email', os.environ['GITHUB_USER_EMAIL']])"
           python -c "import os; import subprocess; subprocess.run(['git', 'config', '--global', 'user.name', os.environ['GITHUB_USER_NAME']])"
