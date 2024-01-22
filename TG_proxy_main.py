@@ -1,51 +1,8 @@
 # coding=utf-8
 import base64
-import requests
-import re
-import time
-import os
-import threading
-from tqdm import tqdm
-import random, string
-import datetime
-from time import sleep
-import chardet
-
-#试用机场链接
-home_urls = (
-    'https://xn--30rs3bu7r87f.com',
-    'https://seeworld.pro',          #5T   永久
-    'https://fastestcloud.xyz',      #2G   1天
-    'https://www.ckcloud.xyz',       #1G   1天
-)
-#文件路径
-update_path = "./sub/"
-#所有的clash订阅链接
-end_list_clash = []
-#所有的v2ray订阅链接
-end_list_v2ray = []
-#所有的节点明文信息
-end_bas64 = []
-#获得格式化后的链接
-new_list = []
-#永久订阅
-e_sub = ['https://sub.pmsub.me/base64','https://www.prop.cf/?name=paimon&client=base64','https://raw.githubusercontent.com/yaney01/Yaney01/main/temporary','https://sub.pmsub.me/base64','https://raw.githubusercontent.com/hkaa0/permalink/main/proxy/V2ray','https://sub.sharecentre.online/sub','https://raw.githubusercontent.com/freefq/free/master/v2','https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub','https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/free','https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub']
-#e_sub = ['https://pastebin.com/raw/dmnL3uAR','https://openit.uitsrt.top/long','https://raw.githubusercontent.com/freefq/free/master/v2','https://raw.githubusercontent.com/ripaojiedian/freenode/main/sub','https://raw.githubusercontent.com/aiboboxx/v2rayfree/main/v2','https://raw.githubusercontent.com/kxswa/k/k/base64']
-#频道
-urls =["https://t.me/s/freeVPNjd","https://t.me/s/wxdy666","https://t.me/s/nice16688","https://t.me/s/go4sharing","https://t.me/s/helloworld_1024","https://t.me/s/dingyue_Center","https://t.me/s/ZDYZ2"]
-#线程池
-threads = []
-#机场链接
-plane_sub = ['https://www.prop.cf/?name=paimon&client=base64']
-#机场试用链接
-try_sub = []
-#获取频道订阅的个数
-sub_n = -5
-#试用节点明文
-end_try = []
-
-#获取群组聊天中的HTTP链接
-def get_channel_http(url):
+import import requests
+...
+    return url_lst
     headers = {
         'sec-ch-ua': '".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"',
         'Accept': 'application/json, text/javascript, */*; q=0.01',
