@@ -4,7 +4,8 @@ import requests
 import re
 import time
 import os
-import threading
+import import requests
+threading
 from tqdm import tqdm
 import random, string
 import datetime
