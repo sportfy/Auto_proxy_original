@@ -37,8 +37,8 @@ jobs:
         python ./Test.py
     - name: 提交更改
       run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
-        git config --local user.name '${{ secrets.NAME }}'
+        git config --local user.email "${{ secrets.EMAIL }}"
+        git config --local user.name "${{ secrets.NAME }}"
         git pull origin main
         git add ./output.yaml
         git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
