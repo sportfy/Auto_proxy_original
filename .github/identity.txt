@@ -1,0 +1,2 @@
+user_email = "user@example.com"
+user_name = "User Name"
