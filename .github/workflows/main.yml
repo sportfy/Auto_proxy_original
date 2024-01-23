@@ -1,4 +1,7 @@
 name: sub_merge
+  needs:
+    - actions/checkout@v2
+    - ad-m/github-push-action@master
 
 # 触发条件
 on:
@@ -26,10 +29,24 @@ jobs:
         key: ${{ runner.os }}-pip-${{ hashFiles('**/run_in_Actions/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
-    - name: 设置时区
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set author's email
+      run: git config --global user.email 'you@example.com'
+    - name: Set author's name
+      run: git config --global user.name 'Your Name'
+    - name: Run the command to set identity
+      run: git config --local user.email ''
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
       run: |
+        - name: Set author's email
+          run: git config --global user.email 'you@example.com'
+        - name: Set aouthor's name
+          run: git config --global user.name 'Your Name'
+        - name: Run the command to set identity
+          run: git config --local user.email ''
+        - name: 
         pip install -r ./requirements.txt
     - name: 执行任务
       run: |
