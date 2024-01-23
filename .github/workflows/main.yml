@@ -10,6 +10,18 @@ on:
     - cron: '0 */3 * * *'
 
 jobs:
+  read_identity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read user identity from file
+        run: |
+          cat .github/identity.txt
+          # Extract user email and name from the file and store in variables
+          EMAIL=$(grep -oP '(?<=user_email = ").*(?=")' .github/identity.txt)
+          NAME=$(grep -oP '(?<=user_name = ").*(?=")' .github/identity.txt)
+          # Set user email and name
+          git config --global user.email $EMAIL
+          git config --global user.name $NAME
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +55,18 @@ jobs:
         git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
-        git add ./Long_term_subscription2
+        git add ./Long_term_subscription5
+        git add ./Long_term_subscription6
+        git add ./Long_term_subscription7
+        git add ./Long_term_subscription8
+        git add ./Long_term_subscription_num
+        git add ./Long_term_subscription_try
+        git add ./Long_term_subscription1.yaml
+        git add ./Long_term_subscription2.yaml
+        git add ./Long_term_subscription3.yaml
+        git add ./README.md
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') sub_merge_node"
+    - name: 推送更改
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
         git add ./Long_term_subscription5
