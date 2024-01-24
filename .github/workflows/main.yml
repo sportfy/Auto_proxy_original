@@ -44,6 +44,8 @@ jobs:
         git add ./sub/*
         git add ./Long_term_subscription1
         git add ./Long_term_subscription2
+      git config --global user.email "you@example.com"
+      git config --global user.name "Your Name"
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
         git add ./Long_term_subscription5
