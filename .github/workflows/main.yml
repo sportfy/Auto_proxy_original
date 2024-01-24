@@ -38,6 +38,8 @@ jobs:
       
     - name: 提交更改
       run: |                 
+    - name: Set user's identity
+      run: |
         git config --local user.email '${{ secrets.EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
