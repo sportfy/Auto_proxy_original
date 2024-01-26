@@ -33,7 +33,12 @@ jobs:
         pip install -r ./requirements.txt
     - name: 执行任务
       run: |
-
+        python ./TG_proxy_main.py
+      
+    - name: 提交更改
+      run: |                 
+        git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
         python ./TG_proxy_main.py
       
     - name: 提交更改
