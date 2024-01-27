@@ -31,6 +31,14 @@ jobs:
     - name: 安装依赖
       run: |
         pip install -r ./requirements.txt
+    - name: Set author's identity
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+
+    - name: 安装依赖
+      run: |
+        pip install -r ./requirements.txt
     - name: 执行任务
       run: |
 
