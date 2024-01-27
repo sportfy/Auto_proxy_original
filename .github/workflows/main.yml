@@ -36,11 +36,20 @@ jobs:
 
         python ./TG_proxy_main.py
       
-    - name: 提交更改
-      run: |                 
+    - name: 设置身份
+      run: bash
+      env:
+        GIT_COMMITTER_NAME: ${{ secrets.NAME }}
+        GIT_COMMITTER_EMAIL: ${{ secrets.EMAIL }}
+      
+      run: |
+      run: bash\n      env:\n        GIT_COMMITTER_NAME: ${{ secrets.NAME }}
+        GIT_COMMITTER_EMAIL: ${{ secrets.EMAIL }}
+      
+      run: |
         git config --local user.email '${{ secrets.EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
-        git pull origin main
+                git pull origin main
         git add ./sub/*
         git add ./Long_term_subscription1
         git add ./Long_term_subscription2
