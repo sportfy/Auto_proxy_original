@@ -435,7 +435,7 @@ def get_nodefree():
     
 if __name__ == '__main__':
     print("========== 开始获取机场订阅链接 ==========")
-    get_sub_url()
+    # clash_sub = get_yaml()et_sub_url()
     print("========== 开始获取网站订阅链接 ==========")
     get_kkzui()
     get_cfmem()
