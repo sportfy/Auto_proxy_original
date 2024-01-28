@@ -190,7 +190,7 @@ def write_document():
         #写入总长期订阅
         obj = base64.b64encode(bas64.encode())
         plaintext_result = obj.decode()
-        file_L = open("Long_term_subscription_num", 'w', encoding='utf-8')
+        file_L = open("file_path", 'w', encoding='utf-8')
         file_L.write(plaintext_result)
         #写入试用订阅
         obj_try = base64.b64encode(bas64_try.encode())
