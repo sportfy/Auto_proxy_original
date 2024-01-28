@@ -1,3 +1,8 @@
+from TG_proxy_main import get_nodefree
+from TG_proxy_main import get_v2rayshare
+from TG_proxy_main import get_cfmem
+from kuaizui import get_kkzui
+from get_link import get_sub_url
 # coding=utf-8
 import base64
 import requests
@@ -19,7 +24,7 @@ home_urls = (
     'https://www.ckcloud.xyz',       #1G   1天
 )
 #文件路径
-update_path = "./sub/"
+update_path = "file_path"
 #所有的clash订阅链接
 end_list_clash = []
 #所有的v2ray订阅链接
@@ -39,7 +44,15 @@ threads = []
 plane_sub = ['https://www.prop.cf/?name=paimon&client=base64']
 #机场试用链接
 try_sub = []
-#获取频道订阅的个数
+print("========== 开始获取机场订阅链接 ==========")
+get_sub_url()
+print("========== 开始获取网站订阅链接 ==========")
+get_kkzui()
+get_cfmem()
+get_v2rayshare()
+get_nodefree()
+print("========== 开始获取频道订阅链接 ==========")
+...
 sub_n = -5
 #试用节点明文
 end_try = []
@@ -190,12 +203,12 @@ def write_document():
         #写入总长期订阅
         obj = base64.b64encode(bas64.encode())
         plaintext_result = obj.decode()
-        file_L = open("Long_term_subscription_num", 'w', encoding='utf-8')
+        file_L = open("file_path", 'w', encoding='utf-8')
         file_L.write(plaintext_result)
         #写入试用订阅
         obj_try = base64.b64encode(bas64_try.encode())
         plaintext_result_try = obj_try.decode()
-        file_L_try = open("Long_term_subscription_try", 'w', encoding='utf-8')
+        file_L_try = open("file_path", 'w', encoding='utf-8')
         file_L_try.write(plaintext_result_try)
         #写入README
         with open("README.md", 'r', encoding='utf-8') as f:
@@ -435,7 +448,7 @@ def get_nodefree():
     
 if __name__ == '__main__':
     print("========== 开始获取机场订阅链接 ==========")
-    get_sub_url()
+    # clash_sub = get_yaml()et_sub_url()
     print("========== 开始获取网站订阅链接 ==========")
     get_kkzui()
     get_cfmem()
