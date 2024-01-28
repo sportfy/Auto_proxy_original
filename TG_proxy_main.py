@@ -19,7 +19,7 @@ home_urls = (
     'https://www.ckcloud.xyz',       #1G   1天
 )
 #文件路径
-update_path = "./sub/"
+update_path = "file_path"
 #所有的clash订阅链接
 end_list_clash = []
 #所有的v2ray订阅链接
