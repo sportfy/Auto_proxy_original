@@ -1,3 +1,8 @@
+from TG_proxy_main import get_nodefree
+from TG_proxy_main import get_v2rayshare
+from TG_proxy_main import get_cfmem
+from kuaizui import get_kkzui
+from get_link import get_sub_url
 # coding=utf-8
 import base64
 import requests
@@ -39,7 +44,15 @@ threads = []
 plane_sub = ['https://www.prop.cf/?name=paimon&client=base64']
 #机场试用链接
 try_sub = []
-#获取频道订阅的个数
+print("========== 开始获取机场订阅链接 ==========")
+get_sub_url()
+print("========== 开始获取网站订阅链接 ==========")
+get_kkzui()
+get_cfmem()
+get_v2rayshare()
+get_nodefree()
+print("========== 开始获取频道订阅链接 ==========")
+...
 sub_n = -5
 #试用节点明文
 end_try = []
