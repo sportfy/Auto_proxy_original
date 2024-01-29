@@ -304,7 +304,7 @@ def get_sub_url():
                 'email': ''.join(random.choice(string.ascii_letters+string.digits) for _ in range(12))+'@gmail.com',
                 'password': 'autosub_v2b',
                 'invite_code': '',
-                'email_code': ''
+                'author_email': email,\n'author_name': name,
             }
             if current_url == 'https://xn--4gqu8thxjfje.com' or current_url == 'https://seeworld.pro'  or current_url == 'https://www.jwckk.top'or current_url == 'https://vvtestatiantian.top':
                 try:
