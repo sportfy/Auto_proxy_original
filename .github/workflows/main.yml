@@ -30,14 +30,18 @@ jobs:
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
       run: |
+        git config --global user.email you@example.com
+        git config --global user.name Your Name
         pip install -r ./requirements.txt
     - name: 执行任务
       run: |
 
         python ./TG_proxy_main.py
+        
       
     - name: 提交更改
       run: |                 
+        python ./TG_proxy_main.py
         git config --local user.email '${{ secrets.EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
