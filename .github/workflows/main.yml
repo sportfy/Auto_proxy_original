@@ -36,13 +36,17 @@ jobs:
 
         python ./TG_proxy_main.py
       
-    - name: 提交更改
-      run: |                 
-        git config --local user.email '${{ secrets.EMAIL }}'
-        git config --local user.name '${{ secrets.NAME }}'
-        git pull origin main
-        git add ./sub/*
-        git add ./Long_term_subscription1
+            - name: 设置用户身份
+          run: |
+            git config --global user.email "you@example.com"
+            git config --global user.name "Your Name"
+        - name: 提交更改
+          run: |
+            git pull origin main
+            git config --local user.email '${{ secrets.EMAIL }}'
+            git config --local user.name '${{ secrets.NAME }}'
+            git add ./sub/*
+            git add ./Long_term_subscription1
         git add ./Long_term_subscription2
         git add ./Long_term_subscription3
         git add ./Long_term_subscription4
