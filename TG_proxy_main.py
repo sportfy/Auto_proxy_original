@@ -45,15 +45,15 @@ sub_n = -5
 end_try = []
 
 #获取群组聊天中的HTTP链接
-def get_channel_http(url):
-    headers = {
-        'sec-ch-ua': '".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"',
-        'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Referer': 'https://t.me/s/wbnet',
-        'X-Requested-With': 'XMLHttpRequest',
-        'sec-ch-ua-mobile': '?0',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',
-        'sec-ch-ua-platform': '"Windows"',
+48: def get_channel_http(url):
+49:     headers = {
+50:         'sec-ch-ua': '".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"',
+51:         'Accept': 'application/json, text/javascript, */*; q=0.01',
+52:         'Referer': 'https://t.me/s/wbnet',
+53:         'X-Requested-With': 'XMLHttpRequest',
+54:         'sec-ch-ua-mobile': '?0',
+55:         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36',
+56:         'sec-ch-ua-platform': '"Windows"',
     }
     response = requests.post(
         url, headers=headers)
