@@ -36,7 +36,11 @@ jobs:
 
         python ./TG_proxy_main.py
       
-    - name: 提交更改
+    - name: 设置身份
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+- name: 提交更改
       run: |                 
         git config --local user.email '${{ secrets.EMAIL }}'
         git config --local user.name '${{ secrets.NAME }}'
