@@ -13,7 +13,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 迁出代码
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set user's author identity
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
       uses: actions/checkout@v2
     - name: 安装Python
       uses: actions/setup-python@v2
