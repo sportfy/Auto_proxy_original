@@ -1,0 +1,22 @@
+name: GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set Git Identity
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git config --global user.email ""
+
+      - name: Run Command
+        run: |
+          git config --global user.email ""
+          # Add the command that was causing the error here
