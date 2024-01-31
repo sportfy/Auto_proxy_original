@@ -34,7 +34,8 @@ jobs:
     - name: 执行任务
       run: |
 
-        python ./TG_proxy_main.py
+          - name: Run the failing command
+      run: python ./TG_proxy_main.py
       
     - name: 提交更改
       run: |                 
