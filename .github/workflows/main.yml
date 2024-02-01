@@ -38,7 +38,28 @@ jobs:
       
     - name: 提交更改
       run: |                 
+    - name: Set Git Identity
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+    
+    - name: 安装依赖
+      run: |
+        pip install -r ./requirements.txt
+    - name: 执行任务
+      run: |
+
+        python ./TG_proxy_main.py
+      
+    - name: 设置用户邮箱
+      run: |
         git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
+    - name: 提交更改
+      run: |                 
+        git pull origin main
+        git add ./sub/*
+        git add ./Long_term_subscription1
         git config --local user.name '${{ secrets.NAME }}'
         git pull origin main
         git add ./sub/*
