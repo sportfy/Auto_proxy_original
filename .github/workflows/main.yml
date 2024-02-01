@@ -34,6 +34,8 @@ jobs:
     - name: 执行任务
       run: |
 
+        git config --local user.email '${{ secrets.EMAIL }}'
+        git config --local user.name '${{ secrets.NAME }}'
         python ./TG_proxy_main.py
       
     - name: 提交更改
